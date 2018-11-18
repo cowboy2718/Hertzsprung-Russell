@@ -1,0 +1,170 @@
+---
+title: ""
+
+output: statsr:::statswithr_lab
+---
+
+### Plotting H-R Diagrams in R
+#### Astronomy: Exploring Space and Time
+##### University of Arizona
+##### Fall 2018
+##### Created by Tony Gojanovic
+***
+
+```{r echo=FALSE,message=FALSE,warning=FALSE}
+# Libraries for the graphs
+
+library(ggplot2)
+library(gridExtra)
+library(knitr)
+library(plotly)
+library(viridis)
+library(ggplot2)
+library(dplyr)
+library(knitr)
+library(lattice)
+library(readxl)
+library(kableExtra)
+library(formattable)
+library(tidyr)
+
+```
+
+### What is a H-R Diagram?
+
+The Hertzsprung-Russell diagram, or H-R diagram, is a powerful tool classifying stars in order to understand the nature of stellar evolution.  More specifically, from Wikipedia, we have "The Hertzsprung–Russell diagram, abbreviated H–R diagram, HR diagram or HRD, is a scatter plot of stars showing the relationship between the stars' absolute magnitudes or luminosities versus their stellar classifications or effective temperatures. More simply, it plots each star on a graph measuring the star's brightness against its temperature (color). It does not map any locations of stars. The related colour–magnitude diagram (CMD) plots the apparent magnitudes of stars against their colour, usually for a cluster so that the stars are all at the same distance. The diagram was created circa 1910 by Ejnar Hertzsprung and Henry Norris Russell and represents a major step towards an understanding of stellar evolution."
+
+The following H-R diagrams were made using R statistical software and compiled with *knitr* to create an HTML document.
+
+***
+
+###Simple Interactive H-R Diagram (McDonald Observatory Dataset)
+#### Theoretical Hertzsprung–Russell diagram
+
+The following interactive Hertzsprung-Russell Diagram is based on data obtained from the McDonald Observatory (see reference in this section).  This data set and illustration can be used for an observational project since both right ascension and declination has been provided for the majority of stars in the diagram.
+
+This form of the H-R diagram in which apparent magnitude and temperature is called the 'Theoretical Hertzsprung–Russell Diagram.' A characteristic of this form of the H–R diagram is that the temperatures are plotted from high temperature to low temperature, which aids in comparing this form of the H–R diagram with the observational form.
+
+```{r echo=FALSE,message=FALSE,warning=FALSE}
+library(readxl)
+setwd("/Users/tonygojanovic/Data")
+mcdonaldstars <- read_excel("R Projects/Hertzsprung-Russell/mcdonaldstars.xlsx")
+View(mcdonaldstars)
+```
+
+```{r echo=FALSE,warning=FALSE,message=FALSE}
+mcdonaldstars<-mcdonaldstars%>% mutate(spectral_type = ifelse(temp <=3500  & temp > 2000, "M", ifelse(temp <=4900 & temp >3500, "K",ifelse(temp <=6000 & temp > 4900,"G",ifelse(temp <=7400 & temp > 60000,"F",ifelse(temp  <=9900 & temp > 7400,"A",ifelse(temp<=28000 & temp > 9900, "B",ifelse(temp <=50000 & temp > 28000,"O","F"))))))))
+```
+
+```{r fig.height=8,fig.width=8,echo=FALSE,warning=FALSE,message=FALSE}
+p1<-ggplot(mcdonaldstars,aes(temp,absolute,label=star))+geom_point(aes(color=temp))
+p1<-p1+scale_x_reverse(breaks = seq(5000, 30000, by = 5000))+scale_y_reverse(breaks = seq(-10,20,by=2))
+p1<-p1+guides(color=F, alpha=F)+
+    scale_alpha_continuous(range=c(0,1))+
+    scale_color_gradientn(
+      colours=c("red","skyblue","blue","white","white"),
+      limits= c(1000,30000))
+p1<-p1+ggtitle("Simple H-R Diagram")+ylab("Absolute Magnitude")+xlab("Degrees Kelvin")
+p1<-p1+theme(panel.background = element_rect(fill = "black"))+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+p1<-ggplotly(p1,tooltip = c("temp","star","absolute"))
+p1
+```
+
+**Spectral Types**
+
+The following table shows star names by spectral type and temperature (degrees Kelvin).
+
+```{r echo=FALSE,message=FALSE,warning=FALSE}
+options(knitr.kable.NA = '')
+tempdt<-mcdonaldstars%>%select(star,temp,spectral_type)
+data_wide<-spread(tempdt,spectral_type,temp)
+data_wide <- data_wide[, c(1,8,3,2,4,5,6,7)]
+kable(data_wide)%>%kable_styling(bootstrap_options = c("striped","condensed","responsive"),font_size=12, full_width = F,position = "left")%>%
+  add_header_above(c(" " = 1, "Spectral Type" = 7))%>%
+  scroll_box(width = "400px", height = "250px")
+
+```
+.  
+**Star Positions by Constellation**
+
+The following table provides the star names along with apparent and absolute magnitude, temperature, constellation, right ascension and declination along with a few notes.  If you're using this to locate the stars, verify positions with a reliable star map.  Not all star positions were located.
+
+```{r message=FALSE, echo=FALSE,warning=FALSE}
+mcdonaldstars%>%mutate(item_no= row.names(.))%>%select(constellation,star,apparent,absolute,temp,spectral_type, RA,Dec,notes) %>% 
+  arrange(desc(temp))%>%
+  arrange(constellation)%>%
+  kable(escape = F, format="html") %>%
+  kable_styling(bootstrap_options = c("striped","condensed","responsive"),font_size=12, full_width = F)%>%
+  group_rows("Andromeda", 1, 1,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Aquarius",2,3,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Aquila",4,4,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Auriga",5,6,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Bootes",7,7,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Canis Major",8,10,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Canis Minor",11,12,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Carina",13,13,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Cassiopeia",14,14,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Centaurus",15,18,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Cetus",19,21,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Cygnus",22,24,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Eridanus",25,26,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Gemini",27,27,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Indus",28,28,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Leo",29,30,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Lyra",31,31,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Ophiuchus",32,32,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Orion",33,34,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Piscis austrinus",35,35,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Sagittarius",36,36,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Scorpius",37,37,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Taurus",38,38,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Ursa Major",39,42,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Ursa Minor",43,43,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Virgo",44,45,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Unclassified",46,55,label_row_css = "background-color: darkgreen; color: white;")%>%
+  scroll_box(width = "950px", height = "250px")
+```
+
+.  
+**References**
+
+Hemenway, Mary Kay and Brad Armosky, "H-R Diagram," *The University of Texas at Austin McDonald Observatory*, 2001.
+Website: https://mcdonaldobservatory.org/sites/default/files/pdfs/teachers/hrd.pdf
+
+Star right ascension, declination and notes were compiled from Wikipedia.
+
+***
+
+### Hertzsprung-Russell Diagram (Yale Trigonometric Parallax Dataset)
+#### Observational Hertzsprung–Russell diagram
+
+The following Hertzsprung-Russell diagram is based on data found in the  R statistical software library **GDAData**. The data is compiled from the Yale Trigonometric Parallax Dataset and can be found on the webpage of the Astronomy Department of Case Western Reserve University (see references below).
+
+This type of H-R diagram is  called an 'observational Hertzsprung-Russell diagram' since stars are plotted by color index (B-V) with apparent magnitude on the vertical axis.  Another name for this version of the H-R diagram is 'color magnitude diagram' or CMD.
+
+```{r echo=FALSE,message=FALSE,warning=FALSE}
+data(HRstars, package="GDAdata")
+```
+
+```{r fig.height=8,fig.width=8,echo=FALSE,message=FALSE,warning=FALSE}
+p2<-ggplot(HRstars,aes(BV,V))+geom_point(shape=16, size=.5,aes(color=BV))
+p2<-p2+scale_x_continuous(limits=c(-.5,2.5))+scale_y_reverse(breaks = seq(-24,24,by=2))
+p2<-p2+guides(color=F, alpha=F)+
+    scale_alpha_continuous(range=c(0,1))+
+    scale_color_gradientn(
+      colours=c("blue","skyblue","white","orange","red"),
+      limits= c(-.5,2.5))
+p2<-p2+ggtitle("Hertzprung Russell Diagram")+xlab("Color Index B-V")+ylab("Abolute Magnitude")
+p2<-p2+annotate("text",x=0,y=15,label="White Dwarfs",size=4,hjust=0,vjust=0,color="white")+annotate("text",x=1.75,y=12,label="Main Sequence",size=4,hjust=0,vjust=0,color="white")+annotate("text",x=1.9,y=4,label="Giants",size=4,hjust=0,vjust=0,color="white")+annotate("text",x=2,y=-0,label="Supergiants",size=4,hjust=0,vjust=0,color="white")
+p2<-p2+theme(panel.background = element_rect(fill = "black"))+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+p2
+```
+
+**References**
+
+Astronomy Department of Case Western Reserve University website: http://burro.astr.cwru.edu/Academics/Astr221/HW/HW5/HW5.html
+
+R Implementation: https://rdrr.io/cran/GDAdata/man/HRstars.html.
+
+***
+
