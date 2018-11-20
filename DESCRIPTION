@@ -11,4 +11,4 @@ License: MIT
 Encoding: UTF-8
 LazyData: true
 VignetteBuilder: utils  
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1
