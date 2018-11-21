@@ -2,18 +2,18 @@
 % Please edit documentation in R/HR Diagram.R
 \name{interactiveHR}
 \alias{interactiveHR}
-\title{Creating an Interactive H-R Diagram}
+\title{Simple Interactive H-R Diagram (McDonald Observatory Dataset)}
 \usage{
 interactiveHR(filename)
 }
 \value{
-An interactive plot with stars of differing temperatures and absolute magnitudes.  Star postions are given as well.
+An interactive plot with stars of differing temperatures and absolute magnitudes.  Star postions are given as well in the dataset.
 }
 \description{
-This function creates an interactive H-R diagram on a limited dataset from the McDonald Observatory.
+This function creates an interactive (theoretical) H-R diagram on a small dataset (n=55 stars) from McDonald Observatory.
 }
 \note{
-The routine also assigns spectral types to the McDonald data set.
+The routine also assigns spectral types to the McDonald dataset which can be used.
 }
 \examples{
 \dontrun{
@@ -23,7 +23,7 @@ The routine also assigns spectral types to the McDonald data set.
 library(dplyr)
 library(ggplot2)
 library(plotly)
-interactiveHR(filename)
+interactiveHR(filename) #Filename will be the imported McDonald Observatory Dataset.
 
 }   
 

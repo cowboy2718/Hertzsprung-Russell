@@ -2,7 +2,7 @@
 % Please edit documentation in R/HR Diagram.R
 \name{import_mcdonald_data}
 \alias{import_mcdonald_data}
-\title{Interactive H-R Diagram Data Import}
+\title{McDonald Observatory Dataset Import}
 \usage{
 import_mcdonald_data(filename)
 }
@@ -16,9 +16,9 @@ Returns a data frame from an Excel file into a dataframd called "mcdonaldstars".
 This function imports an Excel file based on the McDonald Observatory data set.
 }
 \details{
-Note that the McDonald Observatory data set has been updated to include right ascension, declination, spectral types and general notes.
+Note that the McDonald Observatory data set is an updated data set that includes right ascension, declination, spectral types and general notes.
 Follow the instructions on the NOAA site for downloading the entire dataset to a tab delimited file.
-Star data from tables B and C in the McDonald Observatory data set were usized.
+Star data from tables B and C in the McDonald Observatory data set were used as the basis of this data set.
 \url{https://mcdonaldobservatory.org/sites/default/files/pdfs/teachers/hrd.pdf}
 }
 \examples{

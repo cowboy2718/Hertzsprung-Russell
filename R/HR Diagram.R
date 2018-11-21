@@ -3,13 +3,13 @@
 # Fall 2018
 # Created by Tony Gojanovic
 
-#' Interactive H-R Diagram Data Import
+#' McDonald Observatory Dataset Import
 #' 
 #' @description This function imports an Excel file based on the McDonald Observatory data set.
 #' @details 
-#' Note that the McDonald Observatory data set has been updated to include right ascension, declination, spectral types and general notes.
+#' Note that the McDonald Observatory data set is an updated data set that includes right ascension, declination, spectral types and general notes.
 #' Follow the instructions on the NOAA site for downloading the entire dataset to a tab delimited file.
-#' Star data from tables B and C in the McDonald Observatory data set were usized.
+#' Star data from tables B and C in the McDonald Observatory data set were used as the basis of this data set.
 #' \url{https://mcdonaldobservatory.org/sites/default/files/pdfs/teachers/hrd.pdf}
 #' @param filename Filename in the Excel format to be read. The file must be located in the working directory.
 #' @importFrom readxl read_excel
@@ -30,13 +30,13 @@
 }
 
   
-  #' Creating an Interactive H-R Diagram
+  #' Simple Interactive H-R Diagram (McDonald Observatory Dataset)
   #'
   #' @description
-  #' This function creates an interactive H-R diagram on a limited dataset from the McDonald Observatory.
+  #' This function creates an interactive (theoretical) H-R diagram on a small dataset (n=55 stars) from McDonald Observatory.
   #' @return An interactive plot with stars of differing temperatures and absolute magnitudes.  Star postions are given as well in the dataset.
   #' @import ggplot2 dplyr 
-  #' @note The routine also assigns spectral types to the McDonald data set.
+  #' @note The routine also assigns spectral types to the McDonald dataset which can be used.
   #' @examples 
   #' \dontrun{
   #' 
@@ -45,7 +45,7 @@
   #' library(dplyr)
   #' library(ggplot2)
   #' library(plotly)
-  #' interactiveHR(filename)
+  #' interactiveHR(filename) #Filename will be the imported McDonald Observatory Dataset.
   #' 
   #' }   
   #' 
@@ -67,3 +67,37 @@
   p1
   }
   
+#' Hertzsprung-Russell Diagram (Yale Trigonometric Parallax Dataset)
+#'   
+  #' @description
+  #' This function creates an observational H-R diagram on a dataset from the Yale Trigonometric Parallax Dataset.
+  #' @return Returns a H-R plot based on absolute magnitude and color of stars.
+  #' @import ggplot2 dplyr 
+  #' @note The data comes from the R package GDAdata which must be installed.
+  #' @examples 
+  #' \dontrun{
+  #' 
+  #' # Use the dataframe name from the import routine.
+  #' 
+  #' library(dplyr)
+  #' library(ggplot2)
+  #' library(plotly)
+  #' install.packages("GDAdata")
+  #' data(HRstars, package="GDAdata")
+  #' yale_hr_diagram
+  #' 
+  #' }   
+  #' 
+ yale_hr_diagram<-function(){
+  p2<-ggplot(HRstars,aes(BV,V))+geom_point(shape=16, size=.5,aes(color=BV))
+  p2<-p2+scale_x_continuous(limits=c(-.5,2.5))+scale_y_reverse(breaks = seq(-24,24,by=2))
+  p2<-p2+guides(color=F, alpha=F)+
+    scale_alpha_continuous(range=c(0,1))+
+    scale_color_gradientn(
+      colours=c("blue","skyblue","white","orange","red"),
+      limits= c(-.5,2.5))
+  p2<-p2+ggtitle("Hertzprung Russell Diagram")+xlab("Color Index B-V")+ylab("Abolute Magnitude")
+  p2<-p2+annotate("text",x=0,y=15,label="White Dwarfs",size=4,hjust=0,vjust=0,color="white")+annotate("text",x=1.75,y=12,label="Main Sequence",size=4,hjust=0,vjust=0,color="white")+annotate("text",x=1.9,y=4,label="Giants",size=4,hjust=0,vjust=0,color="white")+annotate("text",x=2,y=-0,label="Supergiants",size=4,hjust=0,vjust=0,color="white")
+  p2<-p2+theme(panel.background = element_rect(fill = "black"))+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+  p2 
+  }
