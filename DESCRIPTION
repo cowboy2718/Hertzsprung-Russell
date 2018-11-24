@@ -12,3 +12,9 @@ Encoding: UTF-8
 LazyData: true
 VignetteBuilder: utils  
 RoxygenNote: 6.1.1
+Imports:
+    ggplot2,
+    dplyr,
+    readxl
+Suggests: knitr,
+    rmarkdown
