@@ -15,10 +15,15 @@ For more information, see references below.
 
 ### Theoretical H-R Diagram
 
-The following diagram is an example of a theoretical H-R diagram based on the McDonald Observatory data.  The example is not interactive, but the graphic produced by the R package is designed to interactive.
+The following diagram is an example of a theoretical H-R diagram based on the McDonald Observatory data (n = 55 data points).  The example is not interactive, but the graphic produced by the R package is designed to interactive.
 
 ![Theoretical H-R Diagram](Theoretical.png)
 
+### Observation H-R Diagram
+
+The following diagram is an example of an observational H-R diagram based on the Yale Trigonometric Parallax Dataset (n=6220 data points).
+
+![Observation H-R Diagram](Observational.png)
 
 ### Package Details
 
