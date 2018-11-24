@@ -22,7 +22,6 @@ The data comes from the R package GDAdata which must be installed.
 
 library(dplyr)
 library(ggplot2)
-library(plotly)
 install.packages("GDAdata")
 data(HRstars, package="GDAdata")
 yale_hr_diagram

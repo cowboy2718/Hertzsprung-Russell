@@ -13,7 +13,8 @@ LazyData: true
 VignetteBuilder: utils  
 RoxygenNote: 6.1.1
 Imports: ggplot2,
-    dplyr,
-    readxl
+  dplyr,
+  readxl,
+  plotly
 Suggests: knitr,
     rmarkdown

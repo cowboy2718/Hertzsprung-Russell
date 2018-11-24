@@ -54,7 +54,7 @@
   #' @description
   #' This function creates an interactive (theoretical) H-R diagram on a small dataset (n=55 stars) from McDonald Observatory.
   #' @return An interactive plot with stars of differing temperatures and absolute magnitudes.  Star postions are given as well in the dataset.
-  #' @import ggplot2 dplyr
+  #' @import ggplot2 dplyr plotly
   #' @note The routine also assigns spectral types to the McDonald dataset which can be used.
   #' @examples 
   #' \dontrun{
@@ -98,7 +98,6 @@
   #' 
   #' library(dplyr)
   #' library(ggplot2)
-  #' library(plotly)
   #' install.packages("GDAdata")
   #' data(HRstars, package="GDAdata")
   #' yale_hr_diagram

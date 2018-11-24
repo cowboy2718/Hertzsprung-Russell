@@ -19,9 +19,9 @@ The following diagram is an example of a theoretical H-R diagram based on the Mc
 
 ![Theoretical H-R Diagram](Theoretical.png)
 
-### Observation H-R Diagram
+### Observational H-R Diagram
 
-The following diagram is an example of an observational H-R diagram based on the Yale Trigonometric Parallax Dataset (n=6220 data points).
+The following diagram is an example of an observational H-R diagram based on the Yale Trigonometric Parallax Dataset (n=6220 data points).  The graph produced by the R package is not interactive.
 
 ![Observation H-R Diagram](Observational.png)
 
