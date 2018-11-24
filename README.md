@@ -13,6 +13,10 @@ The Hertzsprung-Russell diagram, or H-R diagram, is a powerful tool classifying 
 
 For more information, see references below.
 
+## Theoretical Image
+
+![What is this](myimage.png)
+
 ### Package Details
 
 Specific details on the package HRDiagram may be obtained through the vignette files.  The vignette files show specific usage and syntax.
