@@ -13,7 +13,11 @@ The Hertzsprung-Russell diagram, or H-R diagram, is a powerful tool classifying 
 
 For more information, see references below.
 
-## Theoretical H-R Diagram
+### Theoretical H-R Diagram
+
+The following diagram is an example of a theoretical H-R diagram based on the McDonald Observatory data.  The example is not interactive, but the graphic produced by the R package is designed to interactive.
+
+![Theoretical H-R Diagram](Theoretical.png)
 
 
 ### Package Details
