@@ -12,7 +12,7 @@
 #' Star data from tables B and C in the McDonald Observatory data set were used as the basis of this data set.
 #' \url{https://mcdonaldobservatory.org/sites/default/files/pdfs/teachers/hrd.pdf}
 #' @param filename Filename in the Excel format to be read. The file must be located in the working directory.
-#' @importFrom readxl read_excel
+#' @import readxl
 #' @return Returns a data frame from an Excel file into a dataframd called "mcdonaldstars".
 #' @note 
 #' @examples 
@@ -34,7 +34,7 @@
   #' @description This function adds spectral types to a dataframe given a column of stellar temperatures.
   #' @details
   #' @param filename Filename is the data frame to be manipulated. 
-  #' @importFrom dplyr mutate
+  #' @import dplyr 
   #' @return Returns a data frame with spectral types.
   #' @note This function is generic and can be used to provide spectral types to any dataframe with a column of stellar temperatures in degrees Kelvin.
   #' @examples 
