@@ -1,0 +1,93 @@
+---
+title: "HRDiagram"
+author: "Tony Gojanovic"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## HRDiagram Package Overview
+
+HRDiagram is a R package used to produce the Hertzsprung-Russell (H-R) diagram for plotting stellar data.  Specifically, it can plot either an *observational* H-R diagram, which is based on apparent magnitude and stellar color (B-V index) or a *theoretical* H-R diagram, which is based on apparent magnitude and stellar temperature (degrees Kelvin).
+
+The theoretical H-R diagram is based on a small dataset (n=55) from the McDonald Observatory.  The plot is interactive and includes a listing of stellar positions with the intent that someone may actually wish to view some of the objects listed through a small telescope.
+
+The observational H-R diagram is based on on a dataset from the Yale Trigonometric Parallax Dataset (n=6220).  The dataset is part of the R package *GDAdata*.
+
+## R Packages
+
+The following R packages are used:
+
+```{r warning=FALSE, message=FALSE}
+library(HRDiagram)
+library(ggplot2)
+library(dplyr)
+library(readxl)
+library(GDAdata)
+
+```
+
+## Downloading Stellar Data
+
+**McDonald Observatory Dataset (theoretical H-R diagram)**
+
+The theoretical H-R diagram is based on a dataset obtained from McDonald Observatory.  The dataset is part of an exercise developed by Mary Kay Hemenway and Brad Armosky which can be found at https://mcdonaldobservatory.org/sites/default/files/pdfs/teachers/hrd.pdf
+
+Data was input into an Excel format from Tables B, C and D from the above educational guide. Additional annotations to the McDonald dataset include right ascension and declination positional data of select stars with some notes of interest from Wikipedia.  
+
+The dataset resides as an Excel file on https://github.com/cowboy2718/Hertzsprung-Russell/ under **Inst/Data/Extdata**.
+
+The Excel data set must be downloaded to the working directory.  The following codes converts the Excel file to a R data frame.
+
+```{r message=FALSE, eval=FALSE}
+library(readxl)
+df<-import_mcdonald_data("mcdonaldstars.xlsx")
+```
+
+Note: Errors associated with the Excel file belong with the author of this package since they were input manually from the McDonald Obsevatory pdf file.
+
+**Yale Trigonometric Parallax Dataset (observational H-R diagram)**
+
+The Yale Trigonometric Parallax Dataset is found in the R package *GDAdata* under the data *HRstars*.  The dataset can be accessed with the following code chunk.
+
+```{r message=FALSE, eval=FALSE}
+install.packages("GDAdata")
+data(HRstars, package="GDAdata")
+```
+
+## Adding Spectral Types
+
+Spectral types based on stellar temperature in degrees Kelvin may be added to the McDonald Observatory data set or any data set in which stellar temperatures are provided in a column.  The following code will perform the operation on a dataframe in R.
+
+```{r message=FALSE, eval=FALSE}
+library(dplyr)
+spectral(filename)
+```
+
+##Theoretical Interactive H-R Diagram (McDonald Data Set)
+
+The following code will plot the interactive theoretical H-R diagram based on n = 55 stellar data points obtained from the McDonald Observatory data set.
+
+```{r message=FALSE, eval=FALSE}
+library(dplyr)
+library(ggplot2)
+library(plotly)
+interactiveHR(filename) #Filename will be the imported McDonald Observatory dataset
+```
+
+##Observational Non-Interactive H-R Diagram (Yale Trigonometric Parallax Dataset)
+
+The following code will plot a non-interactive observational H-R diagram based on n = 6220 stellar data points obtained from the Yale Trigonometric Parallax Dataset.
+
+```{r message=FALSE, eval=FALSE}
+library(dplyr)
+library(ggplot2)
+library(plotly)
+install.packages("GDAdata")
+data(HRstars, package="GDAdata")
+yale_hr_diagram
+```
+

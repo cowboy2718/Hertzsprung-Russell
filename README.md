@@ -5,7 +5,7 @@ November 2018
 
 ### Background
 
-This package provides tools for visual exploration of stellar evolution data using the Hertzsprung-Russell diagram with differing data sets.
+This package provides tools for visual exploration of stellar data using the Hertzsprung-Russell diagram with two types of data sets.
 
 ### What is the Hertzsprung-Russell diagram
 
@@ -13,14 +13,18 @@ The Hertzsprung-Russell diagram, or H-R diagram, is a powerful tool classifying 
 
 For more information, see references below.
 
-### Package Name and Location
-
-Package: FMEA   
-GitHub:  https://github.com/cowboy2718/Hertzsprung-Russell
-
 ### Package Details
 
-Specific details on the package QuakeExplorer may be obtained through the vignette files.  The vignette files show specific usage and syntax.
+Specific details on the package HRDiagram may be obtained through the vignette files.  The vignette files show specific usage and syntax.
+
+### Package Name and Location
+
+To install this package and begin exploring stellar life, use devtools and the following:
+
+```r
+devtools::install_github('cowboy2718/HRDiagram')
+library(HRDiagram)
+```
 
 ### Travis Badge
 
@@ -30,17 +34,10 @@ The following indicates the status of the most recent build with Travis:
 
 The following are useful resources.
 
-https://en.wikipedia.org/wiki/Hertzsprung–Russell_diagram
-
 Audouze and Guy Israel, editors, *The Cambridge Atlas of Astronomy,* Third Edition, Cambridge University Press, 1996.
 
-### Useful Links in the Development of this Package
+North, Gerald, *Astronomy Explained,* Springer, London, 1998.
 
-The following were very useful links used in the development of this project.  RStudio functionality was used in both package development and GitHub integration.
+[More info on H-R Diagrams from Wikipedia](https://en.wikipedia.org/wiki/Hertzsprung%E2%80%93Russell_diagram)
 
-* [Building R Packages in R Studio, John Muschelli](https://www.youtube.com/watch?v=OIirKRgIsdc) 
-* [Putting your R Package on Github, Karl Broman](http://kbroman.org/pkg_primer/pages/github.html) 
-* [RStudio & Github Integration, James Dayhuff](https://www.youtube.com/watch?v=E2d91v1Twcc&t=597s) 
-* [Creating RStudio projects from GitHub Repositories, Nicholas Reich ](https://www.youtube.com/watch?v=YxZ8J2rqhEM) 
-* [Developing R Packages | Part 7: Unit Testing, Colin Pistell](https://www.youtube.com/watch?v=u2KDSY_8Ay4) 
-* [Travis CI Tutorial - How to Use Travis CI with Github for Continuous Integration, Full Stack Academy](https://www.youtube.com/watch?v=Uft5KBimzyk)
+

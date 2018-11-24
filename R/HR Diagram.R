@@ -29,6 +29,25 @@
   mcdonaldstars <- read_excel(filename)
 }
 
+  #' Convert stellar temperatures to spectral types based on degrees Kelvin.
+  #' 
+  #' @description This function adds spectral types to a dataframe given a column of stellar temperatures.
+  #' @details
+  #' @param filename Filename is the data frame to be manipulated. 
+  #' @importFrom dplyr mutate
+  #' @return Returns a data frame with spectral types.
+  #' @note This function is generic and can be used to provide spectral types to any dataframe with a column of stellar temperatures in degrees Kelvin.
+  #' @examples 
+  #' \dontrun{
+  #' library(dplyr)
+  #' df<-spectral(filename) 
+  #' 
+  #' }  
+  
+  spectral<-function(filename){
+  mcdonaldstars<-filename%>% mutate(spectral_type = ifelse(temp <=3500  & temp > 2000, "M", ifelse(temp <=4900 & temp >3500, "K",ifelse(temp <=6000 & temp > 4900,"G",ifelse(temp <=7400 & temp > 60000,"F",ifelse(temp  <=9900 & temp > 7400,"A",ifelse(temp<=28000 & temp > 9900, "B",ifelse(temp <=50000 & temp > 28000,"O","F"))))))))    
+
+  }
   
   #' Simple Interactive H-R Diagram (McDonald Observatory Dataset)
   #'
@@ -51,8 +70,6 @@
   #' 
   interactiveHR<-function(filename){
   
-  mcdonaldstars<-filename  
-  mcdonaldstars<-mcdonaldstars%>% mutate(spectral_type = ifelse(temp <=3500  & temp > 2000, "M", ifelse(temp <=4900 & temp >3500, "K",ifelse(temp <=6000 & temp > 4900,"G",ifelse(temp <=7400 & temp > 60000,"F",ifelse(temp  <=9900 & temp > 7400,"A",ifelse(temp<=28000 & temp > 9900, "B",ifelse(temp <=50000 & temp > 28000,"O","F"))))))))  
     
   p1<-ggplot(mcdonaldstars,aes(temp,absolute,label=star))+geom_point(aes(color=temp))
   p1<-p1+scale_x_reverse(breaks = seq(5000, 30000, by = 5000))+scale_y_reverse(breaks = seq(-10,20,by=2))
@@ -96,7 +113,7 @@
     scale_color_gradientn(
       colours=c("blue","skyblue","white","orange","red"),
       limits= c(-.5,2.5))
-  p2<-p2+ggtitle("Hertzprung Russell Diagram")+xlab("Color Index B-V")+ylab("Abolute Magnitude")
+  p2<-p2+ggtitle("Hertzprung Russell Diagram (Yale Trigonometric Parallax Dataset)")+xlab("Color Index B-V")+ylab("Abolute Magnitude")
   p2<-p2+annotate("text",x=0,y=15,label="White Dwarfs",size=4,hjust=0,vjust=0,color="white")+annotate("text",x=1.75,y=12,label="Main Sequence",size=4,hjust=0,vjust=0,color="white")+annotate("text",x=1.9,y=4,label="Giants",size=4,hjust=0,vjust=0,color="white")+annotate("text",x=2,y=-0,label="Supergiants",size=4,hjust=0,vjust=0,color="white")
   p2<-p2+theme(panel.background = element_rect(fill = "black"))+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
   p2 
