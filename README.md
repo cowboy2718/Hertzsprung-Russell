@@ -15,7 +15,7 @@ For more information, see references below.
 
 ## Theoretical H-R Diagram
 
-![Theoretical H-R Diagram](Theoretical.png)
+
 
 ### Package Details
 
