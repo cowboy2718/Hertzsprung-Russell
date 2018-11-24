@@ -11,7 +11,7 @@ vignette: >
 
 ## HRDiagram Package Overview
 
-HRDiagram is a R package used to produce the Hertzsprung-Russell (H-R) diagram for plotting stellar data.  Specifically, it can plot either an *observational* H-R diagram, which is based on apparent magnitude and stellar color (B-V index) or a *theoretical* H-R diagram, which is based on apparent magnitude and stellar temperature (degrees Kelvin).
+HRDiagram is a R package used to produce the Hertzsprung-Russell (H-R) diagram for plotting stellar data.  Specifically, it can plot either an *observational* H-R diagram, which is based on absolute magnitude and stellar color (B-V index) or a *theoretical* H-R diagram, which is based on absolute magnitude and stellar temperature (degrees Kelvin).
 
 The theoretical H-R diagram is based on a small dataset (n=55) from the McDonald Observatory.  The plot is interactive and includes a listing of stellar positions with the intent that someone may actually wish to view some of the objects listed through a small telescope.
 
@@ -69,7 +69,7 @@ spectral(filename)
 
 ##Theoretical Interactive H-R Diagram (McDonald Data Set)
 
-The following code will plot the interactive theoretical H-R diagram based on n = 55 stellar data points obtained from the McDonald Observatory data set.
+The following code will plot the interactive theoretical H-R diagram based on n = 55 stellar data points obtained from the McDonald Observatory data set.  The graph plots absolute magnitude by degrees Kelvin.
 
 ```{r message=FALSE, eval=FALSE}
 library(dplyr)
@@ -80,7 +80,7 @@ interactiveHR(filename) #Filename will be the imported McDonald Observatory data
 
 ##Observational Non-Interactive H-R Diagram (Yale Trigonometric Parallax Dataset)
 
-The following code will plot a non-interactive observational H-R diagram based on n = 6220 stellar data points obtained from the Yale Trigonometric Parallax Dataset.
+The following code will plot a non-interactive observational H-R diagram based on n = 6220 stellar data points obtained from the Yale Trigonometric Parallax Dataset.  The graph plots absolute magnitude by color type.
 
 ```{r message=FALSE, eval=FALSE}
 library(dplyr)

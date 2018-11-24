@@ -55,7 +55,7 @@
   #' This function creates an interactive (theoretical) H-R diagram on a small dataset (n=55 stars) from McDonald Observatory.
   #' @return An interactive plot with stars of differing temperatures and absolute magnitudes.  Star postions are given as well in the dataset.
   #' @import ggplot2 dplyr plotly
-  #' @note The routine also assigns spectral types to the McDonald dataset which can be used.
+  #' @note This graph is based on absolute magnitude and degrees Kelvin of the stars plotted.
   #' @examples 
   #' \dontrun{
   #' 
@@ -90,7 +90,7 @@
   #' This function creates an observational H-R diagram on a dataset from the Yale Trigonometric Parallax Dataset.
   #' @return Returns a H-R plot based on absolute magnitude and color of stars.
   #' @import ggplot2 dplyr 
-  #' @note The data comes from the R package GDAdata which must be installed.
+  #' @note The data comes from the R package GDAdata which must be installed.  It plots absolute magnitude by color index.
   #' @examples 
   #' \dontrun{
   #' 
