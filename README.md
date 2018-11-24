@@ -16,7 +16,6 @@ For more information, see references below.
 ## Theoretical H-R Diagram
 
 
-
 ### Package Details
 
 Specific details on the package HRDiagram may be obtained through the vignette files.  The vignette files show specific usage and syntax.
