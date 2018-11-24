@@ -13,9 +13,9 @@ The Hertzsprung-Russell diagram, or H-R diagram, is a powerful tool classifying 
 
 For more information, see references below.
 
-## Theoretical Image
+## Theoretical H-R Diagram
 
-![What is this](myimage.png)
+![Theoretical H-R Diagram](Theoretical.png)
 
 ### Package Details
 
