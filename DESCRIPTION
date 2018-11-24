@@ -17,4 +17,4 @@ Imports:
     dplyr,
     readxl
 Suggests: knitr,
-    rmarkdown
+    rmarkdown,dplyr,readxl,ggplot2
