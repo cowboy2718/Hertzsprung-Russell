@@ -42,6 +42,8 @@ library(HRDiagram)
 
 The following indicates the status of the most recent build with Travis:
 
+[![Build Status](https://travis-ci.org/cowboy2718/Hertzsprung-Russell.svg?branch=master)](https://travis-ci.org/cowboy2718/Hertzsprung-Russell)
+
 ### References
 
 The following are useful resources.
