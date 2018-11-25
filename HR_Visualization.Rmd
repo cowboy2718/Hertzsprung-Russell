@@ -166,7 +166,6 @@ p2
 
 **References**
 
-Astronomy Department of Case Western Reserve University website: http://burro.astr.cwru.edu/Academics/Astr221/HW/HW5/HW5.html
 
 R Implementation: https://rdrr.io/cran/GDAdata/man/HRstars.html.
 

@@ -14,7 +14,6 @@
 #' @param filename Filename in the Excel format to be read. The file must be located in the working directory.
 #' @import readxl
 #' @return Returns a data frame from an Excel file into a dataframd called "mcdonaldstars".
-#' @note 
 #' @examples 
 #' # Downloaded mcdonaldstars.xlsx file to your working directory.
 #' # Returns a dataframe with the default name "mcdonaldstar"
@@ -32,7 +31,6 @@
   #' Convert stellar temperatures to spectral types based on degrees Kelvin.
   #' 
   #' @description This function adds spectral types to a dataframe given a column of stellar temperatures.
-  #' @details
   #' @param filename Filename is the data frame to be manipulated. 
   #' @import dplyr 
   #' @return Returns a data frame with spectral types.
