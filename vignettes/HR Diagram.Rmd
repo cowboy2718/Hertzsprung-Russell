@@ -32,6 +32,7 @@ library(GDAdata)
 
 ## Downloading Stellar Data
 
+
 **McDonald Observatory Dataset (theoretical H-R diagram)**
 
 The theoretical H-R diagram is based on a dataset obtained from McDonald Observatory.  The dataset is part of an exercise developed by Mary Kay Hemenway and Brad Armosky which can be found at https://mcdonaldobservatory.org/sites/default/files/pdfs/teachers/hrd.pdf
