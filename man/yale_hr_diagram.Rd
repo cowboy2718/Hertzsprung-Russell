@@ -13,7 +13,7 @@ Returns a H-R plot based on absolute magnitude and color of stars.
 This function creates an observational H-R diagram on a dataset from the Yale Trigonometric Parallax Dataset.
 }
 \note{
-The data comes from the R package GDAdata which must be installed.
+The data comes from the R package GDAdata which must be installed.  It plots absolute magnitude by color index.
 }
 \examples{
 \dontrun{
