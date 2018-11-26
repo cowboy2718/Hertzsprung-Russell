@@ -45,6 +45,8 @@ The following interactive Hertzsprung-Russell Diagram is based on data obtained 
 
 This form of the H-R diagram in which apparent magnitude and temperature is called the 'Theoretical Hertzsprung–Russell Diagram.' A characteristic of this form of the H–R diagram is that the temperatures are plotted from high temperature to low temperature, which aids in comparing this form of the H–R diagram with the observational form.
 
+Note that the graph colors are not an exact match to star color, but rather just show delineations of different regions.
+
 ```{r echo=FALSE,message=FALSE,warning=FALSE}
 library(readxl)
 setwd("/Users/tonygojanovic/Data")
@@ -145,6 +147,8 @@ Star right ascension, declination and notes were compiled from Wikipedia.
 The following Hertzsprung-Russell diagram is based on data found in the  R statistical software library **GDAData**. The data is compiled from the Yale Trigonometric Parallax Dataset and can be found on the webpage of the Astronomy Department of Case Western Reserve University (see references below).
 
 This type of H-R diagram is  called an 'observational Hertzsprung-Russell diagram' since stars are plotted by color index (B-V) with apparent magnitude on the vertical axis.  Another name for this version of the H-R diagram is 'color magnitude diagram' or CMD.
+
+Note that the graph colors are not an exact match to star color, but rather just show delineations of different regions.
 
 ```{r echo=FALSE,message=FALSE,warning=FALSE}
 data(HRstars, package="GDAdata")

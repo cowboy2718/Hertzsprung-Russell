@@ -15,7 +15,9 @@ For more information, see references below.
 
 ### Theoretical H-R Diagram
 
-The following diagram is an example of a theoretical H-R diagram based on the McDonald Observatory data (n = 55 data points).  The plot shows stars by absolute magnitude and degrees Kelvin.  The example is not interactive, but the graphic produced by the R package is designed to be interactive.
+The following diagram is an example of a theoretical H-R diagram based on the McDonald Observatory data (n = 55 data points).  The plot shows stars by absolute magnitude and degrees Kelvin.  The example is not interactive, but the graphic produced by the R package is designed to be interactive.  
+
+Note that the graph colors are not an exact match to star color, but rather just show delineations of different regions.
 
 For an interactive plot in HTML format including ith the database of stars and positions, contact tonygojanovic@gmail.com.
 
@@ -23,7 +25,7 @@ For an interactive plot in HTML format including ith the database of stars and p
 
 ### Observational H-R Diagram
 
-The following diagram is an example of an observational H-R diagram based on the Yale Trigonometric Parallax Dataset (n=6220 data points). The plot shows stars by absolute magnitude and color type.  The graph produced by the R package is not interactive.
+The following diagram is an example of an observational H-R diagram based on the Yale Trigonometric Parallax Dataset (n=6220 data points). The plot shows stars by absolute magnitude and color type.  The graph produced by the R package is not interactive. Note that the graph colors are not an exact match to star color, but rather just show delineations of different regions.
 
 ![Observation H-R Diagram](Observational.png)
 
@@ -35,7 +37,7 @@ To see the vignette file click here http://htmlpreview.github.io/?https://github
 
 ### Package Name and Location
 
-To install this package and begin exploring stellar life, use devtools and the following:
+To install this R package and begin exploring stellar life, use devtools and the following:
 
 ```r
 devtools::install_github('cowboy2718/HRDiagram')
