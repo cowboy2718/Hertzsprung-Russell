@@ -68,7 +68,7 @@ p1<-p1+guides(color=F, alpha=F)+
     scale_color_gradientn(
       colours=c("red","skyblue","blue","white","white"),
       limits= c(1000,30000))
-p1<-p1+ggtitle("Simple H-R Diagram")+ylab("Absolute Magnitude")+xlab("Degrees Kelvin")
+p1<-p1+ggtitle("Simple H-R Diagram (McDonald Observatory Dataset)")+ylab("Absolute Magnitude")+xlab("Degrees Kelvin")
 p1<-p1+theme(panel.background = element_rect(fill = "black"))+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
 p1<-ggplotly(p1,tooltip = c("temp","star","absolute"))
 p1
@@ -104,28 +104,28 @@ mcdonaldstars%>%mutate(item_no= row.names(.))%>%select(constellation,star,appare
   group_rows("Aquila",4,4,label_row_css = "background-color: darkgreen; color: white;")%>%
   group_rows("Auriga",5,6,label_row_css = "background-color: darkgreen; color: white;")%>%
   group_rows("Bootes",7,7,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Canis Major",8,10,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Canis Minor",11,12,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Carina",13,13,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Cassiopeia",14,14,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Centaurus",15,18,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Cetus",19,21,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Cygnus",22,24,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Eridanus",25,26,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Gemini",27,27,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Indus",28,28,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Leo",29,30,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Lyra",31,31,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Ophiuchus",32,32,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Orion",33,34,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Piscis austrinus",35,35,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Sagittarius",36,36,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Scorpius",37,37,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Taurus",38,38,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Ursa Major",39,42,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Ursa Minor",43,43,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Virgo",44,45,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Unclassified",46,55,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Canis Major",8,9,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Canis Minor",10,11,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Carina",12,12,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Cassiopeia",13,13,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Centaurus",14,17,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Cetus",18,20,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Cygnus",21,23,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Eridanus",24,25,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Gemini",26,26,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Indus",27,27,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Leo",28,29,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Lyra",30,30,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Ophiuchus",31,31,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Orion",32,33,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Piscis austrinus",34,34,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Sagittarius",35,35,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Scorpius",36,36,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Taurus",37,37,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Ursa Major",38,41,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Ursa Minor",42,42,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Virgo",43,43,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Unclassified",45,54,label_row_css = "background-color: darkgreen; color: white;")%>%
   scroll_box(width = "950px", height = "250px")
 ```
 
@@ -158,7 +158,7 @@ p2<-p2+guides(color=F, alpha=F)+
     scale_color_gradientn(
       colours=c("blue","skyblue","white","orange","red"),
       limits= c(-.5,2.5))
-p2<-p2+ggtitle("Hertzprung Russell Diagram")+xlab("Color Index B-V")+ylab("Abolute Magnitude")
+p2<-p2+ggtitle("Hertzprung Russell Diagram (Yale Trigonometric Parallax Dataset)")+xlab("Color Index B-V")+ylab("Abolute Magnitude")
 p2<-p2+annotate("text",x=0,y=15,label="White Dwarfs",size=4,hjust=0,vjust=0,color="white")+annotate("text",x=1.75,y=12,label="Main Sequence",size=4,hjust=0,vjust=0,color="white")+annotate("text",x=1.9,y=4,label="Giants",size=4,hjust=0,vjust=0,color="white")+annotate("text",x=2,y=-0,label="Supergiants",size=4,hjust=0,vjust=0,color="white")
 p2<-p2+theme(panel.background = element_rect(fill = "black"))+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
 p2
