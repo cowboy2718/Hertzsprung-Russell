@@ -38,8 +38,6 @@ The following H-R diagrams were made using R statistical software and compiled w
 
 ***
 
-
-
 ### Hertzsprung-Russell Diagram (Yale Trigonometric Parallax Dataset)
 #### Observational Hertzsprung–Russell diagram
 
@@ -173,8 +171,6 @@ Hemenway, Mary Kay and Brad Armosky, "H-R Diagram," *The University of Texas at 
 Website: https://mcdonaldobservatory.org/sites/default/files/pdfs/teachers/hrd.pdf
 
 Star right ascension, declination and notes were compiled from Wikipedia.
-
-***
 
 ***
 
