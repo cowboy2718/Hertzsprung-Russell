@@ -28,3 +28,6 @@ interactiveHR(filename) #Filename will be the imported McDonald Observatory Data
 }   
 
 }
+\references{
+The exercises that accompanies this data may be found at https://mcdonaldobservatory.org/sites/default/files/pdfs/teachers/hrd.pdf
+}

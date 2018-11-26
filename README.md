@@ -23,7 +23,7 @@ For more information, see references below.
 
 The following diagram is an example of an observational H-R diagram based on the Yale Trigonometric Parallax Dataset (n=6220 data points). The plot shows stars by absolute magnitude and color type.  The graph produced by the R package is not interactive. Note that the graph colors are not an exact match to star color, but rather just show delineations of different regions.
 
-![Observation H-R Diagram](Observational.png)
+![Observational H-R Diagram](Observational.png)
 
 ***
 
