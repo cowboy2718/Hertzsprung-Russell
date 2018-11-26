@@ -17,6 +17,8 @@ For more information, see references below.
 
 The following diagram is an example of a theoretical H-R diagram based on the McDonald Observatory data (n = 55 data points).  The plot shows stars by absolute magnitude and degrees Kelvin.  The example is not interactive, but the graphic produced by the R package is designed to be interactive.
 
+For an interactive plot in HTML along with the database of stars and positions, contact tonygojanovic@gmail.com.
+
 ![Theoretical H-R Diagram](Theoretical.png)
 
 ### Observational H-R Diagram
