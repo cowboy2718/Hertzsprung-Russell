@@ -13,7 +13,7 @@ An interactive plot with stars of differing temperatures and absolute magnitudes
 This function creates an interactive (theoretical) H-R diagram on a small dataset (n=55 stars) from McDonald Observatory.
 }
 \note{
-This graph is based on absolute magnitude and degrees Kelvin of the stars plotted.
+The interactive plot also provides a tooltip that can be used to hover over individual stars to show additional information such as apparent magnitude, spectral type, constellation, right ascension and declination.
 }
 \examples{
 \dontrun{

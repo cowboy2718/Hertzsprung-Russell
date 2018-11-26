@@ -79,6 +79,8 @@ library(plotly)
 interactiveHR(filename) #Filename will be the imported McDonald Observatory dataset
 ```
 
+Note: The interactive plot also provides a tooltip that can be used to hover over individual stars to show additional information such as apparent magnitude, spectral type, constellation, right ascension and declination.
+
 ##Observational Non-Interactive H-R Diagram (Yale Trigonometric Parallax Dataset)
 
 The following code will plot a non-interactive observational H-R diagram based on n = 6220 stellar data points obtained from the Yale Trigonometric Parallax Dataset.  The graph plots absolute magnitude by color type.

@@ -38,7 +38,42 @@ The following H-R diagrams were made using R statistical software and compiled w
 
 ***
 
-###Simple Interactive H-R Diagram (McDonald Observatory Dataset)
+
+
+### Hertzsprung-Russell Diagram (Yale Trigonometric Parallax Dataset)
+#### Observational Hertzsprung–Russell diagram
+
+The following Hertzsprung-Russell diagram is based on data found in the  R statistical software library **GDAData**. The data is compiled from the Yale Trigonometric Parallax Dataset and can be found on the webpage of the Astronomy Department of Case Western Reserve University (see references below).
+
+This type of H-R diagram is  called an 'observational Hertzsprung-Russell diagram' since stars are plotted by color index (B-V) with apparent magnitude on the vertical axis.  Another name for this version of the H-R diagram is 'color magnitude diagram' or CMD.
+
+Note that the graph colors are not an exact match to star color, but rather just show delineations of different regions.
+
+```{r echo=FALSE,message=FALSE,warning=FALSE}
+data(HRstars, package="GDAdata")
+```
+
+```{r fig.height=8,fig.width=8,echo=FALSE,message=FALSE,warning=FALSE}
+p2<-ggplot(HRstars,aes(BV,V))+geom_point(shape=16, size=.5,aes(color=BV))
+p2<-p2+scale_x_continuous(limits=c(-.5,2.5))+scale_y_reverse(breaks = seq(-24,24,by=2))
+p2<-p2+guides(color=F, alpha=F)+
+    scale_alpha_continuous(range=c(0,1))+
+    scale_color_gradientn(
+      colours=c("blue","skyblue","white","orange","red"),
+      limits= c(-.5,2.5))
+p2<-p2+ggtitle("Hertzprung Russell Diagram (Yale Trigonometric Parallax Dataset)")+xlab("Color Index B-V")+ylab("Abolute Magnitude")
+p2<-p2+annotate("text",x=0,y=15,label="White Dwarfs",size=4,hjust=0,vjust=0,color="white")+annotate("text",x=1.75,y=12,label="Main Sequence",size=4,hjust=0,vjust=0,color="white")+annotate("text",x=1.9,y=4,label="Giants",size=4,hjust=0,vjust=0,color="white")+annotate("text",x=2,y=-0,label="Supergiants",size=4,hjust=0,vjust=0,color="white")
+p2<-p2+theme(panel.background = element_rect(fill = "black"))+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+p2
+```
+
+**References**
+
+R Implementation: https://rdrr.io/cran/GDAdata/man/HRstars.html.
+
+***
+
+###Simple Interactive H-R Diagram (McDonald Observatory Dataset) for Learning Project
 #### Theoretical Hertzsprung–Russell diagram
 
 The following interactive Hertzsprung-Russell Diagram is based on data obtained from the McDonald Observatory (see reference in this section).  This data set and illustration can be used for an observational project since both right ascension and declination has been provided for the majority of stars in the diagram.
@@ -63,7 +98,7 @@ mcdonaldstars<-mcdonaldstars%>% mutate(spectral_type = ifelse(temp <=3500  & tem
 mcdonaldstars<-mcdonaldstars%>% mutate(spectral_type = ifelse(temp <=3500  & temp > 2000, "M", ifelse(temp <=4900 & temp >3500, "K",ifelse(temp <=6000 & temp > 4900,"G",ifelse(temp <=7400 & temp > 60000,"F",ifelse(temp  <=9900 & temp > 7400,"A",ifelse(temp<=28000 & temp > 9900, "B",ifelse(temp <=50000 & temp > 28000,"O","F"))))))))
 
 
-p1<-ggplot(mcdonaldstars,aes(temp,absolute,label=star))+geom_point(aes(color=temp))
+p1<-ggplot(mcdonaldstars,aes(temp,absolute,label0=star,label1=apparent,label2=spectral_type,label3=temp,label4=constellation,label5=notes,label6=RA,label7=Dec))+geom_point(aes(color=temp))
 p1<-p1+scale_x_reverse(breaks = seq(5000, 30000, by = 5000))+scale_y_reverse(breaks = seq(-10,20,by=2))
 p1<-p1+guides(color=F, alpha=F)+
     scale_alpha_continuous(range=c(0,1))+
@@ -72,7 +107,7 @@ p1<-p1+guides(color=F, alpha=F)+
       limits= c(1000,30000))
 p1<-p1+ggtitle("Simple H-R Diagram (McDonald Observatory Dataset)")+ylab("Absolute Magnitude")+xlab("Degrees Kelvin")
 p1<-p1+theme(panel.background = element_rect(fill = "black"))+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
-p1<-ggplotly(p1,tooltip = c("temp","star","absolute"))
+p1<-ggplotly(p1,tooltip = c("star","apparent","spectral_type","constellation","notes","RA","Dec"))
 p1
 ```
 
@@ -140,38 +175,6 @@ Website: https://mcdonaldobservatory.org/sites/default/files/pdfs/teachers/hrd.p
 Star right ascension, declination and notes were compiled from Wikipedia.
 
 ***
-
-### Hertzsprung-Russell Diagram (Yale Trigonometric Parallax Dataset)
-#### Observational Hertzsprung–Russell diagram
-
-The following Hertzsprung-Russell diagram is based on data found in the  R statistical software library **GDAData**. The data is compiled from the Yale Trigonometric Parallax Dataset and can be found on the webpage of the Astronomy Department of Case Western Reserve University (see references below).
-
-This type of H-R diagram is  called an 'observational Hertzsprung-Russell diagram' since stars are plotted by color index (B-V) with apparent magnitude on the vertical axis.  Another name for this version of the H-R diagram is 'color magnitude diagram' or CMD.
-
-Note that the graph colors are not an exact match to star color, but rather just show delineations of different regions.
-
-```{r echo=FALSE,message=FALSE,warning=FALSE}
-data(HRstars, package="GDAdata")
-```
-
-```{r fig.height=8,fig.width=8,echo=FALSE,message=FALSE,warning=FALSE}
-p2<-ggplot(HRstars,aes(BV,V))+geom_point(shape=16, size=.5,aes(color=BV))
-p2<-p2+scale_x_continuous(limits=c(-.5,2.5))+scale_y_reverse(breaks = seq(-24,24,by=2))
-p2<-p2+guides(color=F, alpha=F)+
-    scale_alpha_continuous(range=c(0,1))+
-    scale_color_gradientn(
-      colours=c("blue","skyblue","white","orange","red"),
-      limits= c(-.5,2.5))
-p2<-p2+ggtitle("Hertzprung Russell Diagram (Yale Trigonometric Parallax Dataset)")+xlab("Color Index B-V")+ylab("Abolute Magnitude")
-p2<-p2+annotate("text",x=0,y=15,label="White Dwarfs",size=4,hjust=0,vjust=0,color="white")+annotate("text",x=1.75,y=12,label="Main Sequence",size=4,hjust=0,vjust=0,color="white")+annotate("text",x=1.9,y=4,label="Giants",size=4,hjust=0,vjust=0,color="white")+annotate("text",x=2,y=-0,label="Supergiants",size=4,hjust=0,vjust=0,color="white")
-p2<-p2+theme(panel.background = element_rect(fill = "black"))+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
-p2
-```
-
-**References**
-
-
-R Implementation: https://rdrr.io/cran/GDAdata/man/HRstars.html.
 
 ***
 

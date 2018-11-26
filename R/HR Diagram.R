@@ -53,7 +53,7 @@
   #' This function creates an interactive (theoretical) H-R diagram on a small dataset (n=55 stars) from McDonald Observatory.
   #' @return An interactive plot with stars of differing temperatures and absolute magnitudes.  Star postions are given as well in the dataset.
   #' @import ggplot2 dplyr plotly
-  #' @note This graph is based on absolute magnitude and degrees Kelvin of the stars plotted.
+  #' @note The interactive plot also provides a tooltip that can be used to hover over individual stars to show additional information such as apparent magnitude, spectral type, constellation, right ascension and declination.
   #' @examples 
   #' \dontrun{
   #' 
@@ -69,7 +69,7 @@
   interactiveHR<-function(filename){
   
     
-  p1<-ggplot(mcdonaldstars,aes(temp,absolute,label=star))+geom_point(aes(color=temp))
+    p1<-ggplot(mcdonaldstars,aes(temp,absolute,label0=star,label1=apparent,label2=spectral_type,label3=temp,label4=constellation,label5=notes,label6=RA,label7=Dec))+geom_point(aes(color=temp))
   p1<-p1+scale_x_reverse(breaks = seq(5000, 30000, by = 5000))+scale_y_reverse(breaks = seq(-10,20,by=2))
   p1<-p1+guides(color=F, alpha=F)+
     scale_alpha_continuous(range=c(0,1))+
@@ -78,7 +78,7 @@
       limits= c(1000,30000))
   p1<-p1+ggtitle("Simple H-R Diagram")+ylab("Absolute Magnitude")+xlab("Degrees Kelvin")
   p1<-p1+theme(panel.background = element_rect(fill = "black"))+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
-  p1<-ggplotly(p1,tooltip = c("temp","star","absolute"))
+  p1<-ggplotly(p1,tooltip = c("star","apparent","spectral_type","constellation","notes","RA","Dec"))
   p1
   }
   
