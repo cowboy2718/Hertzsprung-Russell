@@ -69,18 +69,19 @@
   #' 
   interactiveHR<-function(filename){
   
+    mcdonaldstars<-filename%>% mutate(spectral_type = ifelse(temp <=3500  & temp > 2000, "M", ifelse(temp <=4900 & temp >3500, "K",ifelse(temp <=6000 & temp > 4900,"G",ifelse(temp <=7400 & temp > 60000,"F",ifelse(temp  <=9900 & temp > 7400,"A",ifelse(temp<=28000 & temp > 9900, "B",ifelse(temp <=50000 & temp > 28000,"O","F"))))))))    
     
-    p1<-ggplot(mcdonaldstars,aes(temp,absolute,label0=star,label1=apparent,label2=spectral_type,label3=temp,label4=constellation,label5=notes,label6=RA,label7=Dec))+geom_point(aes(color=temp))
-  p1<-p1+scale_x_reverse(breaks = seq(5000, 30000, by = 5000))+scale_y_reverse(breaks = seq(-10,20,by=2))
-  p1<-p1+guides(color=F, alpha=F)+
-    scale_alpha_continuous(range=c(0,1))+
-    scale_color_gradientn(
-      colours=c("red","skyblue","blue","white","white"),
-      limits= c(1000,30000))
-  p1<-p1+ggtitle("Simple H-R Diagram")+ylab("Absolute Magnitude")+xlab("Degrees Kelvin")
-  p1<-p1+theme(panel.background = element_rect(fill = "black"))+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
-  p1<-ggplotly(p1,tooltip = c("star","apparent","spectral_type","constellation","notes","RA","Dec"))
-  p1
+    p1<-ggplot(mcdonaldstars,aes(temp,absolute,label0=star,label1=light_years,label2=apparent,label3=spectral_type,label4=temp,label5=constellation,label6=notes,label7=RA,label8=Dec))+geom_point(aes(color=temp))
+    p1<-p1+scale_x_reverse(breaks = seq(5000, 30000, by = 5000))+scale_y_reverse(breaks = seq(-10,20,by=2))
+    p1<-p1+guides(color=F, alpha=F)+
+      scale_alpha_continuous(range=c(0,1))+
+      scale_color_gradientn(
+        colours=c("red","skyblue","blue","white","white"),
+        limits= c(1000,30000))
+    p1<-p1+ggtitle("Simple H-R Diagram (McDonald Observatory Dataset)")+ylab("Absolute Magnitude")+xlab("Degrees Kelvin")
+    p1<-p1+theme(panel.background = element_rect(fill = "black"))+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+    p1<-ggplotly(p1,tooltip = c("star","light_years","apparent","spectral_type","constellation","notes","RA","Dec"))
+    p1
   }
   
 #' Hertzsprung-Russell Diagram (Yale Trigonometric Parallax Dataset)

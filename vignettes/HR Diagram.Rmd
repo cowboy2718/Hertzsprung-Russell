@@ -70,7 +70,7 @@ spectral(filename)
 
 ##Theoretical Interactive H-R Diagram (McDonald Data Set)
 
-The following code will plot the interactive theoretical H-R diagram based on n = 55 stellar data points obtained from the McDonald Observatory data set.  The graph plots absolute magnitude by degrees Kelvin.
+The following code will plot the interactive theoretical H-R diagram based on n = 52 stellar data points obtained from the McDonald Observatory data set.  The graph plots absolute magnitude by degrees Kelvin.
 
 ```{r message=FALSE, eval=FALSE}
 library(dplyr)
