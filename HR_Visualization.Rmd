@@ -128,7 +128,7 @@ kable(data_wide)%>%kable_styling(bootstrap_options = c("striped","condensed","re
 
 The following table provides the star names along with apparent and absolute magnitude, temperature, constellation, right ascension and declination along with a few notes.  If you're using this to locate the stars, verify positions with a reliable star map.  Not all star positions were located.
 
-```{r message=FALSE, echo=FALSE,warning=FALSE,eval=FALSE}
+```{r message=FALSE, echo=FALSE,warning=FALSE}
 mcdonaldstars%>%mutate(item_no= row.names(.))%>%select(constellation,star,apparent,absolute,temp,spectral_type, RA,Dec,notes) %>% 
   arrange(desc(temp))%>%
   arrange(constellation)%>%
@@ -145,22 +145,23 @@ mcdonaldstars%>%mutate(item_no= row.names(.))%>%select(constellation,star,appare
   group_rows("Cassiopeia",13,13,label_row_css = "background-color: darkgreen; color: white;")%>%
   group_rows("Centaurus",14,17,label_row_css = "background-color: darkgreen; color: white;")%>%
   group_rows("Cetus",18,20,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Cygnus",21,23,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Eridanus",24,25,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Gemini",26,26,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Indus",27,27,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Leo",28,29,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Lyra",30,30,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Ophiuchus",31,31,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Orion",32,33,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Piscis austrinus",34,34,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Sagittarius",35,35,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Scorpius",36,36,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Taurus",37,37,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Ursa Major",38,41,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Ursa Minor",42,42,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Virgo",43,43,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Unclassified",45,54,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Crux",21,23,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Cygnus",24,26,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Eridanus",27,28,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Gemini",29,29,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Indus",30,30,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Leo",31,32,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Lyra",33,33,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Ophiuchus",34,34,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Orion",35,36,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Piscis austrinus",37,37,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Sagittarius",38,38,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Scorpius",39,39,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Taurus",40,40,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Ursa Major",41,43,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Ursa Minor",44,45,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Virgo",46,47,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Unclassified",48,52,label_row_css = "background-color: darkgreen; color: white;")%>%
   scroll_box(width = "950px", height = "250px")
 ```
 
