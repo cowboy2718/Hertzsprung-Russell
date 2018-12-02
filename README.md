@@ -64,7 +64,7 @@ library(HRDiagram)
 
 ### Interactive HTML File
 
-For an interactive HTML file, contact the author at tonygojanovic@gmail.com
+For the complete interactive HTML file, contact the author at tonygojanovic@gmail.com
 
 ***
 
