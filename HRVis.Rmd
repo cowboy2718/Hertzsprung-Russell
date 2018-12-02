@@ -1,0 +1,137 @@
+---
+title: ""
+
+output: statsr:::statswithr_lab
+---
+
+### Plotting H-R Diagrams in R
+#### Astronomy: Exploring Space and Time
+##### University of Arizona
+##### Fall 2018
+##### Created by Tony Gojanovic
+***
+
+```{r echo=FALSE,message=FALSE,warning=FALSE}
+# Libraries for the graphs
+
+library(ggplot2)
+library(gridExtra)
+library(knitr)
+library(plotly)
+library(viridis)
+library(ggplot2)
+library(dplyr)
+library(knitr)
+library(lattice)
+library(readxl)
+library(kableExtra)
+library(formattable)
+library(tidyr)
+
+```
+
+
+###Simple Interactive H-R Diagram (McDonald Observatory Dataset) for Learning Project
+#### Theoretical Hertzsprung–Russell diagram
+
+The following interactive Hertzsprung-Russell Diagram is based on data obtained from the McDonald Observatory (see reference in this section).  This data set and illustration can be used for an observational project since both right ascension and declination has been provided for the majority of stars in the diagram.
+
+This form of the H-R diagram in which apparent magnitude and temperature is called the 'Theoretical Hertzsprung–Russell Diagram.' A characteristic of this form of the H–R diagram is that the temperatures are plotted from high temperature to low temperature, which aids in comparing this form of the H–R diagram with the observational form.
+
+Note that the graph colors are not an exact match to star color, but rather just show delineations of different regions.
+
+```{r echo=FALSE,message=FALSE,warning=FALSE}
+library(readxl)
+setwd("/Users/tonygojanovic/Data")
+mcdonaldstars <- read_excel("R Projects/Hertzsprung-Russell/mcdonaldstars.xlsx")
+View(mcdonaldstars)
+```
+
+```{r echo=FALSE,warning=FALSE,message=FALSE}
+mcdonaldstars<-mcdonaldstars%>% mutate(spectral_type = ifelse(temp <=3500  & temp > 2000, "M", ifelse(temp <=4900 & temp >3500, "K",ifelse(temp <=6000 & temp > 4900,"G",ifelse(temp <=7400 & temp > 60000,"F",ifelse(temp  <=9900 & temp > 7400,"A",ifelse(temp<=28000 & temp > 9900, "B",ifelse(temp <=50000 & temp > 28000,"O","F"))))))))
+```
+
+```{r fig.height=8,fig.width=8,echo=FALSE,warning=FALSE,message=FALSE}
+
+mcdonaldstars<-mcdonaldstars%>% mutate(spectral_type = ifelse(temp <=3500  & temp > 2000, "M", ifelse(temp <=4900 & temp >3500, "K",ifelse(temp <=6000 & temp > 4900,"G",ifelse(temp <=7400 & temp > 60000,"F",ifelse(temp  <=9900 & temp > 7400,"A",ifelse(temp<=28000 & temp > 9900, "B",ifelse(temp <=50000 & temp > 28000,"O","F"))))))))
+
+
+p1<-ggplot(mcdonaldstars,aes(temp,absolute,label0=star,label1=light_years,label2=apparent,label3=spectral_type,label4=temp,label5=constellation,label6=notes,label7=RA,label8=Dec))+geom_point(aes(color=temp))
+p1<-p1+scale_x_reverse(breaks = seq(5000, 30000, by = 5000))+scale_y_reverse(breaks = seq(-10,20,by=2))
+p1<-p1+guides(color=F, alpha=F)+
+    scale_alpha_continuous(range=c(0,1))+
+    scale_color_gradientn(
+      colours=c("red","skyblue","blue","white","white"),
+      limits= c(1000,30000))
+p1<-p1+ggtitle("Simple H-R Diagram (McDonald Observatory Dataset)")+ylab("Absolute Magnitude")+xlab("Degrees Kelvin")
+p1<-p1+theme(panel.background = element_rect(fill = "black"))+theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+p1<-ggplotly(p1,tooltip = c("star","light_years","apparent","spectral_type","constellation","notes","RA","Dec"))
+p1
+```
+
+**Spectral Types**
+
+The following table shows star names by spectral type and temperature (degrees Kelvin).
+
+```{r echo=FALSE,message=FALSE,warning=FALSE}
+options(knitr.kable.NA = '')
+tempdt<-mcdonaldstars%>%select(star,temp,spectral_type)
+data_wide<-spread(tempdt,spectral_type,temp)
+data_wide <- data_wide[, c(1,8,3,2,4,5,6,7)]
+kable(data_wide)%>%kable_styling(bootstrap_options = c("striped","condensed","responsive"),font_size=12, full_width = F,position = "left")%>%
+  add_header_above(c(" " = 1, "Spectral Type" = 7))%>%
+  scroll_box(width = "400px", height = "250px")
+
+```
+.  
+**Star Positions by Constellation**
+
+The following table provides the star names along with apparent and absolute magnitude, temperature, constellation, right ascension and declination along with a few notes.  If you're using this to locate the stars, verify positions with a reliable star map.  Not all star positions were located.
+
+```{r message=FALSE, echo=FALSE,warning=FALSE}
+mcdonaldstars%>%mutate(item_no= row.names(.))%>%select(constellation,star,apparent,absolute,temp,spectral_type, RA,Dec,notes) %>% 
+  arrange(desc(temp))%>%
+  arrange(constellation)%>%
+  kable(escape = F, format="html") %>%
+  kable_styling(bootstrap_options = c("striped","condensed","responsive"),font_size=12, full_width = F)%>%
+  group_rows("Andromeda", 1, 1,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Aquarius",2,3,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Aquila",4,4,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Auriga",5,6,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Bootes",7,7,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Canis Major",8,9,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Canis Minor",10,11,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Carina",12,12,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Cassiopeia",13,13,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Centaurus",14,17,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Cetus",18,20,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Crux",21,23,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Cygnus",24,26,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Eridanus",27,28,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Gemini",29,29,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Indus",30,30,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Leo",31,32,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Lyra",33,33,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Ophiuchus",34,34,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Orion",35,36,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Piscis austrinus",37,37,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Sagittarius",38,38,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Scorpius",39,39,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Taurus",40,40,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Ursa Major",41,43,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Ursa Minor",44,45,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Virgo",46,47,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Unclassified",48,52,label_row_css = "background-color: darkgreen; color: white;")%>%
+  scroll_box(width = "950px", height = "250px")
+```
+
+.  
+**References**
+
+Hemenway, Mary Kay and Brad Armosky, "H-R Diagram," *The University of Texas at Austin McDonald Observatory*, 2001.
+Website: https://mcdonaldobservatory.org/sites/default/files/pdfs/teachers/hrd.pdf
+
+Star right ascension, declination and notes were compiled from Wikipedia.
+
+***
+
