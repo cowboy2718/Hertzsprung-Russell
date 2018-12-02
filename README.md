@@ -62,6 +62,12 @@ library(HRDiagram)
 ```
 ***
 
+### Interactive HTML File
+
+For an interactive HTML file, contact the author at tonygojanovic@gmail.com
+
+***
+
 ### Travis Badge
 
 The following indicates the status of the most recent build with Travis:
