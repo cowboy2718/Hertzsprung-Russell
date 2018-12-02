@@ -1,7 +1,7 @@
 ## Hertzsprung-Russell
-R package to explore stellar evolution based on the Hertzsprung-Russell diagram  
-Tony Gojanovic  
-November 2018  
+### R package to explore stellar evolution based on the Hertzsprung-Russell diagram  
+##### Exploring Space and Time | University of Arizona | Fall 2018
+##### Created by Tony Gojanovic
 
 ***
 
@@ -36,11 +36,15 @@ The interactive plot also provides a tooltip that can be used to hover over indi
 
 Note that the graph colors are not an exact match to star color, but rather just show delineations of different regions.
 
-For an interactive plot in HTML format including ith the database of stars and positions, contact tonygojanovic@gmail.com.
-
 The exercises that accompanies this data may be found at https://mcdonaldobservatory.org/sites/default/files/pdfs/teachers/hrd.pdf
 
 ![Theoretical H-R Diagram](Theoretical.png)
+
+***
+
+### Interactive HTML File
+
+For the complete interactive HTML file, contact the author at tonygojanovic@gmail.com
 
 ***
 
@@ -60,12 +64,6 @@ To install this R package and begin exploring stellar life, use devtools and the
 devtools::install_github('cowboy2718/HRDiagram')
 library(HRDiagram)
 ```
-***
-
-### Interactive HTML File
-
-For the complete interactive HTML file, contact the author at tonygojanovic@gmail.com
-
 ***
 
 ### Travis Badge
