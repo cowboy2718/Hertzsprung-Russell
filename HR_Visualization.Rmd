@@ -71,7 +71,7 @@ R Implementation: https://rdrr.io/cran/GDAdata/man/HRstars.html.
 
 ***
 
-###Simple Interactive H-R Diagram (McDonald Observatory Dataset) for Learning Project
+###Simple Interactive H-R Diagram (McDonald Observatory Dataset) for Learning Projects
 #### Theoretical Hertzsprung–Russell diagram
 
 The following interactive Hertzsprung-Russell Diagram is based on data obtained from the McDonald Observatory (see reference in this section).  This data set and illustration can be used for an observational project since both right ascension and declination has been provided for the majority of stars in the diagram.
@@ -135,38 +135,43 @@ mcdonaldstars%>%mutate(item_no= row.names(.))%>%select(constellation,star,appare
   kable(escape = F, format="html") %>%
   kable_styling(bootstrap_options = c("striped","condensed","responsive"),font_size=12, full_width = F)%>%
   group_rows("Andromeda", 1, 1,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Aquarius",2,3,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Aquila",4,4,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Auriga",5,6,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Bootes",7,7,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Canis Major",8,9,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Canis Minor",10,11,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Carina",12,12,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Cassiopeia",13,13,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Centaurus",14,17,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Cetus",18,20,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Crux",21,23,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Cygnus",24,26,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Eridanus",27,28,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Gemini",29,29,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Indus",30,30,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Leo",31,32,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Lyra",33,33,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Ophiuchus",34,34,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Orion",35,36,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Piscis austrinus",37,37,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Sagittarius",38,38,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Scorpius",39,39,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Taurus",40,40,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Ursa Major",41,43,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Ursa Minor",44,45,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Virgo",46,47,label_row_css = "background-color: darkgreen; color: white;")%>%
-  group_rows("Unclassified",48,52,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Apus",2,2,label_row_css="background-color:darkgreen; color:white;")%>%
+  group_rows("Aquarius",3,4,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Aquila",5,5,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Auriga",6,7,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Bootes",8,8,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Canis Major",9,10,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Canis Minor",11,12,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Carina",13,13,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Cassiopeia",14,14,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Centaurus",15,18,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Cetus",19,21,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Crux",22,24,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Cygnus",25,27,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Draco",28,28,label_row_css = "background-color: darkgreen; color:white")%>%
+  group_rows("Eridanus",29,30,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Gemini",31,31,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Indus",32,32,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Leo",33,34,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Lyra",35,35,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Ophiuchus",36,36,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Orion",37,38,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Pegasus",39,39,label_row_css = "background-color: darkgreen; color: white")%>%
+  group_rows("Piscis austrinus",40,40,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Sagittarius",41,41,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Scorpius",42,42,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Taurus",43,43,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Ursa Major",44,47,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Ursa Minor",48,50,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Virgo",51,52,label_row_css = "background-color: darkgreen; color: white;")%>%
+  group_rows("Unclassified",53,57,label_row_css = "background-color: darkgreen; color: white;")%>%
   scroll_box(width = "950px", height = "250px")
 ```
 
 .  
 **References**
+
+Croswell, Ken, "Hypervelocity Stars," *Sky & Telescope,*, December 2018, pp. 30 - 33.
 
 Hemenway, Mary Kay and Brad Armosky, "H-R Diagram," *The University of Texas at Austin McDonald Observatory*, 2001.
 Website: https://mcdonaldobservatory.org/sites/default/files/pdfs/teachers/hrd.pdf
