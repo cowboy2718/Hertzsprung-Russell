@@ -30,9 +30,9 @@ The following diagram is an example of an observational H-R diagram based on the
 
 ### Theoretical H-R Diagram
 
-The following diagram is an example of a theoretical H-R diagram based on the McDonald Observatory data (n = 52 data points).  The plot shows stars by absolute magnitude and degrees Kelvin.  The example is not interactive, but the graphic produced by the R package is designed to be interactive.  
+The following diagram is an example of a theoretical H-R diagram based on the McDonald Observatory data (n = 57 data points).  The plot shows stars by absolute magnitude and degrees Kelvin.  The example is not interactive, but the graphic produced by the R package is designed to be interactive.  
 
-The interactive plot also provides a tooltip that can be used to hover over individual stars to show additional information such as apparent magnitude, spectral type, constellation, right ascension and declination.
+The interactive plot also provides a tooltip that can be used to hover over individual stars to show additional information such as apparent magnitude, spectral type, constellation, right ascension and declination.  A selection of "hypervelocity" stars have also been included in this graph.  
 
 Note that the graph colors are not an exact match to star color, but rather just show delineations of different regions.
 
@@ -79,6 +79,8 @@ The following indicates the status of the most recent build with Travis:
 The following are useful resources.
 
 Audouze and Guy Israel, editors, *The Cambridge Atlas of Astronomy,* Third Edition, Cambridge University Press, 1996.
+
+Croswell, Ken, "Hypervelocity Stars," *Sky & Telescope,* December 2018, pp. 30 - 33.
 
 Hemenway, Mary Kay and Brad Armosky, "H-R Diagram," *The University of Texas at Austin McDonald Observatory*, 2001.
 Website: https://mcdonaldobservatory.org/sites/default/files/pdfs/teachers/hrd.pdf

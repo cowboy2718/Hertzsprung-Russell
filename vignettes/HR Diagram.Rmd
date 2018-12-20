@@ -35,7 +35,7 @@ library(GDAdata)
 
 **McDonald Observatory Dataset (theoretical H-R diagram)**
 
-The theoretical H-R diagram is based on a dataset obtained from McDonald Observatory.  The dataset is part of an exercise developed by Mary Kay Hemenway and Brad Armosky which can be found at https://mcdonaldobservatory.org/sites/default/files/pdfs/teachers/hrd.pdf
+The theoretical H-R diagram is based on a dataset obtained from McDonald Observatory including a selection of hypervelocity star.  The dataset is part of an exercise developed by Mary Kay Hemenway and Brad Armosky which can be found at https://mcdonaldobservatory.org/sites/default/files/pdfs/teachers/hrd.pdf.  A list of hypervelocity stars can be found in the December 2018 issue of *Sky&Telescope.*
 
 Data was input into an Excel format from Tables B, C and D from the above educational guide. Additional annotations to the McDonald dataset include right ascension and declination positional data of select stars with some notes of interest from Wikipedia.  
 
@@ -70,7 +70,7 @@ spectral(filename)
 
 ##Theoretical Interactive H-R Diagram (McDonald Data Set)
 
-The following code will plot the interactive theoretical H-R diagram based on n = 52 stellar data points obtained from the McDonald Observatory data set.  The graph plots absolute magnitude by degrees Kelvin.
+The following code will plot the interactive theoretical H-R diagram based on n = 57 stellar data points obtained from the McDonald Observatory data set and a selection of hypervelocity stars from *Sky & Telescope,* December 2018 issue.  The graph plots absolute magnitude by degrees Kelvin.
 
 ```{r message=FALSE, eval=FALSE}
 library(dplyr)

@@ -97,7 +97,7 @@ mcdonaldstars<-mcdonaldstars%>% mutate(spectral_type = ifelse(temp <=3500  & tem
 
 
 p1<-ggplot(mcdonaldstars,aes(temp,absolute,label0=star,label1=light_years,label2=apparent,label3=spectral_type,label4=temp,label5=constellation,label6=notes,label7=RA,label8=Dec))+geom_point(aes(color=temp))
-p1<-p1+scale_x_reverse(breaks = seq(5000, 30000, by = 5000))+scale_y_reverse(breaks = seq(-10,20,by=2))
+p1<-p1+scale_x_reverse(breaks = seq(5000, 50000, by = 5000))+scale_y_reverse(breaks = seq(-10,20,by=2))
 p1<-p1+guides(color=F, alpha=F)+
     scale_alpha_continuous(range=c(0,1))+
     scale_color_gradientn(
