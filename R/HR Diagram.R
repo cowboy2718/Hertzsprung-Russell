@@ -50,7 +50,7 @@
   #' Simple Interactive H-R Diagram (McDonald Observatory Dataset)
   #'
   #' @description
-  #' This function creates an interactive (theoretical) H-R diagram on a small dataset (n=55 stars) from McDonald Observatory.
+  #' This function creates an interactive (theoretical) H-R diagram on a small dataset (n=57 stars) from McDonald Observatory.
   #' @return An interactive plot with stars of differing temperatures and absolute magnitudes.  Star postions are given as well in the dataset.
   #' @import ggplot2 dplyr plotly
   #' @note The interactive plot also provides a tooltip that can be used to hover over individual stars to show additional information such as apparent magnitude, spectral type, constellation, right ascension and declination.

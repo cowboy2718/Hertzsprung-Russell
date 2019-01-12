@@ -71,7 +71,7 @@ R Implementation: https://rdrr.io/cran/GDAdata/man/HRstars.html.
 
 ***
 
-###Simple Interactive H-R Diagram (McDonald Observatory Dataset) for Learning Projects
+###Simple Interactive H-R Diagram (McDonald Observatory Dataset) for Visual Learning Projects
 #### Theoretical Hertzsprung–Russell diagram
 
 The following interactive Hertzsprung-Russell Diagram is based on data obtained from the McDonald Observatory (see reference in this section).  This data set and illustration can be used for an observational project since both right ascension and declination has been provided for the majority of stars in the diagram.

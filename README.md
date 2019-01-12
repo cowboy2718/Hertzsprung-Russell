@@ -30,7 +30,7 @@ The following diagram is an example of an observational H-R diagram based on the
 
 ### Theoretical H-R Diagram
 
-The following diagram is an example of a theoretical H-R diagram based on the McDonald Observatory data (n = 57 data points).  The plot shows stars by absolute magnitude and degrees Kelvin.  The example is not interactive, but the graphic produced by the R package is designed to be interactive.  
+The following diagram is an example of a theoretical H-R diagram based on the McDonald Observatory data (n = 57 data points).  The plot shows stars by absolute magnitude and degrees Kelvin.  The example is not interactive, but the graphic produced by the R package is designed to be interactive which can be used for visual learning projects.
 
 The interactive plot also provides a tooltip that can be used to hover over individual stars to show additional information such as apparent magnitude, spectral type, constellation, right ascension and declination.  A selection of "hypervelocity" stars have also been included in this graph. 
 
@@ -42,9 +42,9 @@ The exercises that accompanies this data may be found at https://mcdonaldobserva
 
 ***
 
-### Interactive HTML File
+### Interactive HTML File (Visual Learning Projects)
 
-For the complete interactive HTML file, contact the author at tonygojanovic@gmail.com
+For the complete interactive HTML file, which can be used for a visual learning project, contact the author at tonygojanovic@gmail.com  
 
 ***
 
